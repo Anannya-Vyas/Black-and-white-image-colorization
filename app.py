@@ -1,14 +1,20 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-import io
+import os
 import base64
 from colorizer import ImageColorizer
 
-app = Flask(__name__)
-CORS(app) # Enable CORS for all routes
+# Configure Flask to serve the React build
+app = Flask(__name__, static_folder='frontend/dist', static_url_path='')
+CORS(app) 
 
 # Initialize colorizer
 colorizer = ImageColorizer()
+
+@app.route('/')
+def serve():
+    """Serve the React frontend."""
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/status', methods=['GET'])
 def check_status():
@@ -45,9 +51,17 @@ def colorize_image():
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
+# Error handler to serve index.html for React routes
+@app.errorhandler(404)
+def not_found(e):
+    return send_from_directory(app.static_folder, 'index.html')
+
 if __name__ == '__main__':
     # Initial status check
     print("Checking model files...")
     colorizer.ensure_models()
-    print("Starting server on port 5000...")
-    app.run(port=5000)
+    
+    # Use environment variable for port (required for cloud deployment)
+    port = int(os.environ.get("PORT", 5000))
+    print(f"Starting server on port {port}...")
+    app.run(host='0.0.0.0', port=port)
