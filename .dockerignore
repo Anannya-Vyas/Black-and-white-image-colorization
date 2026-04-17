@@ -1,0 +1,12 @@
+frontend/node_modules
+frontend/dist
+Model/*.caffemodel
+Model/colorization_release_v2.caffemodel
+Model/colorization_deploy_v2.prototxt
+Model/pts_in_hull.npy
+__pycache__
+*.pyc
+.git
+.gitignore
+.dockerignore
+node_modules
