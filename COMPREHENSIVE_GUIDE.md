@@ -74,4 +74,4 @@ When you click "Colorize", the system follows these steps:
 Machine Learning is not magic—it is statistics and pattern recognition at scale. This project demonstrates how we can take abstract mathematical concepts (like Lab color spaces and tensors) and turn them into a beautiful, useful tool for preserving history.
 
 ---
-*Created with ❤️ by Antigravity*
+*Created with ❤️ by Anannya Vyas*
