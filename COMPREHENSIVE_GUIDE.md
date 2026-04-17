@@ -1041,7 +1041,7 @@ HTML uses **tags** to define content elements:
 <!DOCTYPE html>                 <!-- Declares HTML5 -->
 <html lang="en">
 <head>
-    <title>AI Colorizer</title> <!-- Browser tab title -->
+    <title>Neural Colorizerr</title> <!-- Browser tab title -->
 </head>
 <body>
     <h1>Main Title</h1>        <!-- Large heading -->
@@ -1374,7 +1374,7 @@ git push -u origin master
 
 ### Git LFS for Large Files (over 100MB)
 
-GitHub limits regular files to 100MB. The AI model is ~123MB. Solution: Git LFS (Large File Storage).
+GitHub limits regular files to 100MB. The Machine Learning model is ~123MB. Solution: Git LFS (Large File Storage).
 
 ```bash
 # Install LFS (one-time)
